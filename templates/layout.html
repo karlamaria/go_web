@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles/index.css">
+    <h1>{{.Name}}<h1>
+  </head>
+
+  <body>
+    <ul>
+        {{range .Jobs}}
+          <li>{{.Title}} at {{.Company}}</li>
+        {{end}}
+    </ul>
+  </body>
+</html>
