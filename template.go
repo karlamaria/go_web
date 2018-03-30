@@ -43,8 +43,8 @@ func configPort() string {
 func main() {
   http.HandleFunc("/", renderPortfolio)
 
-  // fs := http.FileServer(http.Dir("templates/styles/"))
-  // http.Handle("/styles/", http.StripPrefix("/styles/", fs))
+  fs := http.FileServer(http.Dir("templates/styles/"))
+  http.Handle("/styles/", http.StripPrefix("/styles/", fs))
 
   // http.ListenAndServe(":9999", nil)
   http.ListenAndServe(configPort(), nil)
