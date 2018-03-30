@@ -32,13 +32,13 @@ func renderPortfolio(w http.ResponseWriter, r *http.Request) {
   tmpl.Execute(w, data)
 }
 
-// func configPort() string {
-//   port := os.Getenv("PORT")
-//   if port != "" {
-//     return ":" + port
-//   }
-//   return ":9999"
-// }
+func configPort() string {
+  port := os.Getenv("PORT")
+  if port != "" {
+    return ":" + port
+  }
+  return ":9999"
+}
 
 func main() {
   http.HandleFunc("/", renderPortfolio)
@@ -46,6 +46,6 @@ func main() {
   // fs := http.FileServer(http.Dir("templates/styles/"))
   // http.Handle("/styles/", http.StripPrefix("/styles/", fs))
 
-  http.ListenAndServe(":9999", nil)
-  // http.ListenAndServe(configPort(), nil)
+  // http.ListenAndServe(":9999", nil)
+  http.ListenAndServe(configPort(), nil)
 }
